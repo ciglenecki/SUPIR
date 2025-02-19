@@ -1,4 +1,4 @@
-fastapi==0.95.1
+# fastapi==0.95.1
 gradio==4.16.0
 gradio_imageslider==0.0.17
 gradio_client==0.8.1
@@ -20,7 +20,6 @@ einops==0.7.0
 einops-exts==0.0.4
 timm==0.9.8
 openai-clip==1.0.1
-fsspec==2023.4.0
 kornia==0.6.9
 matplotlib==3.7.1
 ninja==1.11.1
@@ -33,7 +32,6 @@ pytorch-lightning==2.1.2
 PyYAML==6.0
 scipy==1.9.1
 tqdm==4.65.0
-triton==2.1.0
 urllib3==1.26.15
 webdataset==0.2.48
 xformers>=0.0.20

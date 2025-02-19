@@ -18,6 +18,8 @@ from transformers import (
     T5Tokenizer,
 )
 
+from CKPT_PTH import SDXL_CLIP1_PATH, SDXL_CLIP2_CKPT_PTH
+
 from ...modules.autoencoding.regularizers import DiagonalGaussianRegularizer
 from ...modules.diffusionmodules.model import Encoder
 from ...modules.diffusionmodules.openaimodel import Timestep
@@ -32,7 +34,6 @@ from ...util import (
     instantiate_from_config,
 )
 
-from CKPT_PTH import SDXL_CLIP1_PATH, SDXL_CLIP2_CKPT_PTH
 
 class AbstractEmbModel(nn.Module):
     def __init__(self):
@@ -290,7 +291,6 @@ class PreparedConditioner(nn.Module):
         return c, uc
 
 
-
 class InceptionV3(nn.Module):
     """Wrapper around the https://github.com/mseitzer/pytorch-fid inception
     port with an additional squeeze at the end"""
@@ -531,6 +531,7 @@ class FrozenOpenCLIPEmbedder2(AbstractEmbModel):
             arch,
             device=torch.device("cpu"),
             pretrained=version if SDXL_CLIP2_CKPT_PTH is None else SDXL_CLIP2_CKPT_PTH,
+            load_weights_only=False,
         )
         del model.visual
         self.model = model

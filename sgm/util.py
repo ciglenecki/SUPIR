@@ -4,7 +4,6 @@ import os
 from functools import partial
 from inspect import isfunction
 
-import fsspec
 import numpy as np
 import torch
 from PIL import Image, ImageDraw, ImageFont
@@ -103,10 +102,7 @@ def partialclass(cls, *args, **kwargs):
 
 
 def make_path_absolute(path):
-    fs, p = fsspec.core.url_to_fs(path)
-    if fs.protocol == "file":
-        return os.path.abspath(p)
-    return path
+    return os.path.abspath(path)
 
 
 def ismap(x):
@@ -161,7 +157,7 @@ def mean_flat(tensor):
 def count_params(model, verbose=False):
     total_params = sum(p.numel() for p in model.parameters())
     if verbose:
-        print(f"{model.__class__.__name__} has {total_params * 1.e-6:.2f} M params.")
+        print(f"{model.__class__.__name__} has {total_params * 1.0e-6:.2f} M params.")
     return total_params
 
 

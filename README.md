@@ -85,7 +85,7 @@ Usage:
 --s_stage2               Control Strength of Stage2. Default: 1.0
 --num_samples            Number of samples for each input. Default: 1
 --a_prompt               Additive positive prompt for all inputs. 
-    Default: 'Cinematic, High Contrast, highly detailed, taken using a Canon EOS R camera, 
+    Default: 'High details, taken using a Canon EOS R camera, 
     hyper detailed photo - realistic maximum detail, 32k, Color Grading, ultra HD, extreme
      meticulous detailing, skin pore detailing, hyper sharpness, perfect without deformations.'
 --n_prompt               Fixed negative prompt for all inputs. 
